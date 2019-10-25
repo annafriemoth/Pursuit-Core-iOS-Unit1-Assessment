@@ -24,8 +24,6 @@ class Game {
     return Int.random(in: 18...21)
     }
     
-
-
     // methods(functions)
     func newGame() {
         player.score = 0 // something else here, not score
@@ -34,8 +32,6 @@ class Game {
 
     // stopHits() called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
     func stopHits() {
-        
-        
         if player.score >= 21 {
         print("Would you like to play again? (yes, no)")
         let shouldContinuePlaying = readLine() ?? ""
@@ -47,8 +43,6 @@ class Game {
         }
         }
 
-    
-    
     // hitMe() called as the user requests more cards from the deck
     func hitMe() -> Int  {
         
@@ -58,18 +52,7 @@ class Game {
         player.cards.append(aCardunwrapped)
         player.score += aCardunwrapped.value
         }
-        
-        
-//        let newCard = Card.newDeck()
-//        return newCard.append(score)
-        
-    // calls more cards from deck
-        
-    // adds that vards value to the users cards playersCard.append
-//       let score = Player.score {
-//        score.append
-//        }
-//
+        print("Your score is \(player.score)")
         return player.score
     }
     
@@ -85,25 +68,22 @@ class Game {
               }
         
     }
-        
-        
-
-    
     
 //  gameStatus() takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
     
-    func gameStatus(_ playersCard: String) {
-        switch playersCard {
-        case "BlackJack":
-            print("")
-        case "Bust":
-            print("")
-        case "Continue Playing":
-            print("")
-        default:
-            print("Type is unavailable")
-        }
-    }
+//    func gameStatus(_ playersCard: String) {
+//        switch playersCard {
+//        case "BlackJack":
+//            print("")
+//        case "Bust":
+//            print("")
+//        case "Continue Playing":
+//            print("\(Game.newgame())")
+//        default:
+//            print("Type is unavailable")
+//        }
+//    }
+//}
+
+
 }
-
-

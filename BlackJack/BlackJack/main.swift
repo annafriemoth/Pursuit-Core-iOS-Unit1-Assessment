@@ -39,11 +39,11 @@ repeat {
     print(cardString)
 
 
-    print("Your score is \(player.score) Do you want to hit or pass?")
-var choice = readLine()?.lowercased()
+    print("Do you want to hit or pass?")
+    var choice = readLine()?.lowercased()
     switch choice {
     case "hit":
-        print("\(game.hitMe())")
+        game.hitMe()
     case "pass":
         print("\(game.stopHits())")
     default:
