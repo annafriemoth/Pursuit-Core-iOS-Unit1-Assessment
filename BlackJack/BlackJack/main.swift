@@ -28,6 +28,11 @@ game.newGame()
 var gameOver = false
 
 
+print("""
+╦ ╦╔═╗╦  ╔═╗╔═╗╔╦╗╔═╗  ╔╦╗╔═╗  ╔╗ ╦  ╔═╗╔═╗╦╔═ ╦╔═╗╔═╗╦╔═
+║║║║╣ ║  ║  ║ ║║║║║╣    ║ ║ ║  ╠╩╗║  ╠═╣║  ╠╩╗ ║╠═╣║  ╠╩╗
+╚╩╝╚═╝╩═╝╚═╝╚═╝╩ ╩╚═╝   ╩ ╚═╝  ╚═╝╩═╝╩ ╩╚═╝╩ ╩╚╝╩ ╩╚═╝╩ ╩
+""")
 
 
 repeat {
@@ -35,26 +40,36 @@ repeat {
 //print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
 // There are 52 in a deck of cards
 
-    let cardString = Card.newDeck(aceValue: 1).randomElement()!.stringify()
-    print(cardString)
+//    let cardString = Card.newDeck(aceValue: 1).randomElement()!.stringify()
+//    print(cardString)
 
-
+//    repeat {
+        
+        
     print("Do you want to hit or pass?")
     var choice = readLine()?.lowercased()
     switch choice {
     case "hit":
-        game.hitMe()
+        let _ = game.hitMe()
+        
     case "pass":
         print("\(game.stopHits())")
     default:
         print("default")
         }
     
-
-
-
+//
+//  if player.score >= 21 {
+//              print ("You won!")
+//          } else {
+//              print("")
+//          }
 
 // 5. When the player has won or lost ask them if they would wish to continue playing another round.
-
+                    
+    
+//    } while Player.score >= 21
     
 } while playAgain
+
+

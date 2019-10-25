@@ -51,8 +51,17 @@ class Game {
         if let aCardunwrapped = aCard{
         player.cards.append(aCardunwrapped)
         player.score += aCardunwrapped.value
+            print(aCardunwrapped.stringify())
         }
         print("Your score is \(player.score)")
+        
+        
+        if player.score >= 21 {
+               print ("You won!")
+        } else {
+               print("")
+        }
+
         return player.score
     }
     
