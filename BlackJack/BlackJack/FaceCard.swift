@@ -9,11 +9,9 @@
 import Foundation
 
 
-enum FaceCard: String {
-
+enum FaceCard: String, CaseIterable {
     case jack = "🎃"
     case queen = "👸"
     case king = "🤴"
-
 }
 

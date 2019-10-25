@@ -16,8 +16,8 @@ struct Card {
   var suit: Suit
   var value: Int
   var isFaceCard: Bool
-  var face: FaceCard?
-  
+    var face: FaceCard?
+
   func stringify() -> String {
     var cardStr = ""
     if self.isFaceCard {

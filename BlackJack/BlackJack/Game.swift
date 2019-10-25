@@ -11,68 +11,99 @@ import Foundation
 class Game {
 
     // instance properties
-    var deck: [Card]
-    var player: Player
-    var hitPlayer: Bool
-
-    
+    var deck = Card.newDeck(aceValue: 1)
+    var player = Player(score: 0, cards: [Card](), playerName: "Anna")
+    var hitPlayer = true
 
     // computed properites
-    var hasMoreCards: Bool
-    var randomComputerScore: Int
-
-    
-    // designated initializer
-    init(deck: [Card],
-         player: Player,
-         hitPlayer: Bool,
-         hasMoreCards: Bool,
-         randomComputerScore: Int) {
-        self.deck = deck
-        self.player = player
-        self.hitPlayer = hitPlayer
-        self.hasMoreCards = hasMoreCards
-        self.randomComputerScore = randomComputerScore
+    var hasMoreCards: Bool {
+    return !deck.isEmpty
     }
+    
+    var randomComputerScore: Int {
+    return Int.random(in: 18...21)
+    }
+    
+
 
     // methods(functions)
     func newGame() {
-        score = 0 // something else here, not score
-        deck.removeAll()
+        player.score = 0 // something else here, not score
+        deck = Card.newDeck(aceValue: 1)
     }
 
     // stopHits() called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
     func stopHits() {
         
-        var randomPlayerScore = Int.random(in: 18...21)
-        var randomComputerScore = Int.random(in: 18...21)
-        if randomPlayerScore > randomComputerScore {
-            print("You scored higher than the computer. You win!")
-        } else {
-            print("The computer scored higher than you. Computer wins!")
+        
+        if player.score >= 21 {
+        print("Would you like to play again? (yes, no)")
+        let shouldContinuePlaying = readLine() ?? ""
+//        } if shouldContinuePlaying == "yes" {
+           game.newGame()
+           playAgain = true
+           } else {
+           playAgain = false
         }
-        //STOP GAME HERE
-    }
+        }
+
+    
     
     // hitMe() called as the user requests more cards from the deck
-    func hitMe() {
+    func hitMe() -> Int  {
+        
+        var shuffle = deck.shuffled()
+        var aCard = shuffle.popLast()
+        if let aCardunwrapped = aCard{
+        player.cards.append(aCardunwrapped)
+        player.score += aCardunwrapped.value
+        }
+        
+        
+//        let newCard = Card.newDeck()
+//        return newCard.append(score)
+        
+    // calls more cards from deck
+        
+    // adds that vards value to the users cards playersCard.append
+//       let score = Player.score {
+//        score.append
+//        }
+//
+        return player.score
+    }
+    
+ // computerVsPlayer() draws a random number for the computer and determines the winner of the game.
+    func computerVsPlayer() {
+       var randomComputerScore = Int.random(in: 18...21)
+       var randomPlayerScore = Int.random(in: 18...21)
+            
+              if randomPlayerScore > randomComputerScore {
+                  print("You scored higher than the computer. You win!")
+              } else {
+                  print("The computer scored higher than you. Computer wins!")
+              }
         
     }
+        
+        
+
     
-    // computerVsPlayer() draws a random number for the computer and determines the winner of the game.
-    func computerVsPlayer() {
-        randomComputerScore = Int.random(in: 1...100)
-    }
     
-    // gameStatus() takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
-    //
+//  gameStatus() takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
+    
     func gameStatus(_ playersCard: String) {
         switch playersCard {
-        case "BlackJack": // 18? 21? WHAT IS THE CURRENT SCORE HERE
-        case "Bust": //
+        case "BlackJack":
+            print("")
+        case "Bust":
+            print("")
         case "Continue Playing":
+            print("")
         default:
             print("Type is unavailable")
         }
     }
 }
+
+
