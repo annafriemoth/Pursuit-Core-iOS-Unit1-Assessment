@@ -35,7 +35,10 @@ print("""
 """)
 
 
+
 repeat {
+
+//var continuePlaying = readLine()?.lowercased()
 
 //print("There are \(Card.newDeck(aceValue: 1).count) in a deck of cards")
 // There are 52 in a deck of cards
@@ -44,10 +47,43 @@ repeat {
 //    print(cardString)
 
 //    repeat {
+
+print("Do you want to hit or pass? (hit, pass)")
+var choice = readLine()?.lowercased()
+     
+//    let _ = game.computerVsPlayer()
+//
+//    if game.randomComputerScore >= 21 {
+//        print("You lose! The computer score higher than you. Do you want to continue playing? (yes, no)")
+//        var continuePlaying = readLine()?.lowercased()
+//        switch continuePlaying {
+//               case "yes":
+//                   let _ = game.newGame()
+//               case "no":
+//                   break
+//               default:
+//                print("what?")
+//               }
         
         
-    print("Do you want to hit or pass?")
-    var choice = readLine()?.lowercased()
+        
+//    }
+    if game.player.score >= 21 {
+            print ("You won! Do you want to continue playing? (yes, no) ")
+        var continuePlaying = readLine()?.lowercased()
+        switch continuePlaying {
+        case "yes":
+            let _ = game.newGame()
+        case "no":
+            break
+        default:
+         print("what?")
+        }
+        
+     } else {
+            print("")
+     }
+    
     switch choice {
     case "hit":
         let _ = game.hitMe()
@@ -57,8 +93,7 @@ repeat {
     default:
         print("default")
         }
-    
-//
+ 
 //  if player.score >= 21 {
 //              print ("You won!")
 //          } else {

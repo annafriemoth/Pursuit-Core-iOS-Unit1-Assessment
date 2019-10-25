@@ -56,11 +56,7 @@ class Game {
         print("Your score is \(player.score)")
         
         
-        if player.score >= 21 {
-               print ("You won!")
-        } else {
-               print("")
-        }
+    
 
         return player.score
     }
