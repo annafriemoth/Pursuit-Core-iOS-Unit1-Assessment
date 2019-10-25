@@ -37,19 +37,21 @@ class Game {
 
     // methods(functions)
     func newGame() {
-    print("Would you like to keep playing? (yes, no)")
-    let shouldContinuePlaying = readLine() ?? ""
-    if shouldContinuePlaying == "yes" {
-    game.reset()
-    playAgain = true
-    } else {
-    playAgain = false
-    }
+        score = 0 // something else here, not score
+        deck.removeAll()
     }
 
     // stopHits() called if the user wishes to pass their turn. In that case the computer draws a random number and a winner is chosen between the computer's score and the player's score.
     func stopHits() {
-        randomComputerScore = Int.random(in 1...100)
+        
+        var randomPlayerScore = Int.random(in: 18...21)
+        var randomComputerScore = Int.random(in: 18...21)
+        if randomPlayerScore > randomComputerScore {
+            print("You scored higher than the computer. You win!")
+        } else {
+            print("The computer scored higher than you. Computer wins!")
+        }
+        //STOP GAME HERE
     }
     
     // hitMe() called as the user requests more cards from the deck
@@ -59,15 +61,18 @@ class Game {
     
     // computerVsPlayer() draws a random number for the computer and determines the winner of the game.
     func computerVsPlayer() {
-        randomComputerScore = Int.random(in 1...100)
+        randomComputerScore = Int.random(in: 1...100)
     }
     
     // gameStatus() takes in the player's card and determines the current score. Here the player score options can be, BlackJack, Bust or Continue playing as their status is still valid for game play.
-    func gameStatus() {
+    //
+    func gameStatus(_ playersCard: String) {
         switch playersCard {
-        case "BlackJack":
-        case "Bust":
+        case "BlackJack": // 18? 21? WHAT IS THE CURRENT SCORE HERE
+        case "Bust": //
         case "Continue Playing":
+        default:
+            print("Type is unavailable")
         }
     }
 }
